@@ -1,3 +1,4 @@
+import Game.Trie;
 import org.junit.Assert;
 
 public class TestCreateTrie {

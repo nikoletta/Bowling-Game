@@ -1,3 +1,4 @@
+import Game.Frame;
 import org.junit.Assert;
 import org.junit.Test;
 
