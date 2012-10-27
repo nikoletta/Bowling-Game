@@ -1,11 +1,11 @@
 package Game;
 
-/**
- * Created by IntelliJ IDEA.
- * User: my
- * Date: 25.10.12
- * Time: 21:34
- * To change this template use File | Settings | File Templates.
- */
+import java.util.List;
+
 public class Line {
+    private List<Frame> frames;
+
+    public List<Frame> getFrames() {
+        return frames;
+    }
 }

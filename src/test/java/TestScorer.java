@@ -1,3 +1,4 @@
+import Control.GameBuilder;
 import Control.Scorer;
 import junit.framework.Assert;
 import org.junit.Test;
@@ -8,13 +9,27 @@ public class TestScorer {
     final static String ROLL3 = "XXXXXXXXXXXX";
 
     @Test
-    public void createScorerTest(){
-        Scorer scorer = new Scorer();
+    public void createScorerTest() {
 
-        Assert.assertTrue(scorer != null);
+        {
+            GameBuilder testGame = new GameBuilder(ROLL1);
+            Scorer scorer = new Scorer();
+            Assert.assertTrue(scorer != null);
+            Assert.assertEquals(scorer.evaluate(testGame.getLine()), 150);
+        }
 
-        Assert.assertEquals(scorer.evaluate(ROLL1), 150);
-        Assert.assertEquals(scorer.evaluate(ROLL2), 90);
-        Assert.assertEquals(scorer.evaluate(ROLL3), 300);
+        {
+            GameBuilder testGame = new GameBuilder(ROLL2);
+            Scorer scorer = new Scorer();
+            Assert.assertTrue(scorer != null);
+            Assert.assertEquals(scorer.evaluate(testGame.getLine()), 90);
+        }
+
+        {
+            GameBuilder testGame = new GameBuilder(ROLL3);
+            Scorer scorer = new Scorer();
+            Assert.assertTrue(scorer != null);
+            Assert.assertEquals(scorer.evaluate(testGame.getLine()), 300);
+        }
     }
 }

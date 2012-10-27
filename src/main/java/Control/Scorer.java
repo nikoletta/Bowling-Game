@@ -1,26 +1,13 @@
 package Control;
 
+import Game.Line;
+
 public class Scorer {
 
-    public int evaluate(String roll) {
+    public int evaluate(Line line) {
 
         return 0;
     }
-
-    boolean isSpare(char c){
-        if(c == '/') return true;
-        else return false;
-    }
-
-    boolean isMiss(char c){
-        if(c=='-') return true;
-        else return false;
-    }
-    boolean isStrike(char c){
-        if(c=='X') return true;
-        else return false;
-    }
-
 
 }
 
