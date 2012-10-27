@@ -2,7 +2,6 @@ package Game;
 
 public class Trie {
     char pinsKnockedDown;
-    private boolean notThrown;
 
     public Trie(char pinsKnockedDown) {
         this.pinsKnockedDown = pinsKnockedDown;
@@ -13,7 +12,8 @@ public class Trie {
     }
 
     public boolean isNotThrown() {
-        return notThrown;
+        if (pinsKnockedDown == '0') return true;
+        else return false;
     }
 
     public boolean isSpare() {

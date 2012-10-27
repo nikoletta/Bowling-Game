@@ -14,12 +14,8 @@ public class TestGameBuilder {
 
             Assert.assertTrue(gameBuilder.getLine() != null);
             Assert.assertEquals(gameBuilder.getLine().getFrames().size(), 12);
-            Assert.assertEquals(gameBuilder.getLine().getFrames().get(10).isFinalFrame(), false);
-            Assert.assertEquals(gameBuilder.getLine().getFrames().get(11).isBonus(), true);
-            Assert.assertEquals(gameBuilder.getLine().getFrames().get(12).isBonus(), true);
-            Assert.assertEquals(gameBuilder.getLine().getFrames().get(12).isFinalFrame(), true);
-            Assert.assertEquals(gameBuilder.getLine().getFrames().get(2).getTrie(1).isStrike(), true);
-            Assert.assertEquals(gameBuilder.getLine().getFrames().get(2).getTrie(2).isNotThrown(), true);
+            Assert.assertEquals(gameBuilder.getLine().getFrames().get(1).getTrie(0).isStrike(), true);
+            Assert.assertEquals(gameBuilder.getLine().getFrames().get(1).getTrie(1).isNotThrown(), true);
 
         }
         {
@@ -27,10 +23,8 @@ public class TestGameBuilder {
 
             Assert.assertTrue(gameBuilder.getLine() != null);
             Assert.assertEquals(gameBuilder.getLine().getFrames().size(), 10);
-            Assert.assertEquals(gameBuilder.getLine().getFrames().get(10).isFinalFrame(), true);
-            Assert.assertEquals(gameBuilder.getLine().getFrames().get(10).isBonus(), true);
-            Assert.assertEquals(gameBuilder.getLine().getFrames().get(1).getTrie(1).isMiss(), false);
-            Assert.assertEquals(gameBuilder.getLine().getFrames().get(1).getTrie(2).isMiss(), true);
+            Assert.assertEquals(gameBuilder.getLine().getFrames().get(0).getTrie(0).isMiss(), false);
+            Assert.assertEquals(gameBuilder.getLine().getFrames().get(0).getTrie(1).isMiss(), true);
 
         }
         {
@@ -38,11 +32,8 @@ public class TestGameBuilder {
 
             Assert.assertTrue(gameBuilder.getLine() != null);
             Assert.assertEquals(gameBuilder.getLine().getFrames().size(), 11);
-            Assert.assertEquals(gameBuilder.getLine().getFrames().get(10).isFinalFrame(), false);
-            Assert.assertEquals(gameBuilder.getLine().getFrames().get(11).isFinalFrame(), true);
-            Assert.assertEquals(gameBuilder.getLine().getFrames().get(11).isBonus(), true);
-            Assert.assertEquals(gameBuilder.getLine().getFrames().get(1).getTrie(1).isSpare(), false);
-            Assert.assertEquals(gameBuilder.getLine().getFrames().get(1).getTrie(2).isSpare(), true);
+            Assert.assertEquals(gameBuilder.getLine().getFrames().get(0).getTrie(0).isSpare(), false);
+            Assert.assertEquals(gameBuilder.getLine().getFrames().get(0).getTrie(1).isSpare(), true);
 
         }
     }
