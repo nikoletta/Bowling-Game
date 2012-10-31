@@ -5,8 +5,11 @@ import java.util.List;
 
 public class Frame {
 
-    int score;
     private List<Trie> tries = new ArrayList<Trie>();
+
+    public Frame(){
+
+    }
 
     public Frame(Trie trie) {
         tries.add(trie);
@@ -17,19 +20,19 @@ public class Frame {
         tries.add(trie2);
     }
 
-    public Frame() {
-
-    }
-
-    public int getScore() {
-        return score;
-    }
-
     public Trie getTrie(int i) {
         return tries.get(i);
     }
 
     public List<Trie> getTries() {
         return tries;
+    }
+
+    public boolean isSpare() {
+         return tries.get(1).isSpare();
+    }
+
+    public boolean isStrike() {
+        return tries.get(0).isStrike();
     }
 }
