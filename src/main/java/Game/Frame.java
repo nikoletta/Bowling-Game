@@ -6,6 +6,7 @@ import java.util.List;
 public class Frame {
 
     private List<Trie> tries = new ArrayList<Trie>();
+    private boolean isBonus= false;
 
     public Frame(){
 
@@ -34,5 +35,13 @@ public class Frame {
 
     public boolean isStrike() {
         return tries.get(0).isStrike();
+    }
+
+    public boolean isBonus() {
+        return isBonus;
+    }
+
+    public void setBonus(boolean b) {
+        isBonus = b;
     }
 }

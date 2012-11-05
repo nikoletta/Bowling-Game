@@ -9,27 +9,33 @@ public class TestScorer {
     final static String ROLL3 = "XXXXXXXXXXXX";
 
     @Test
-    public void createScorerTest() {
+    public void createScorerTest() throws Exception{
 
         {
             GameBuilder testGame = new GameBuilder(ROLL1);
             Scorer scorer = new Scorer();
             Assert.assertTrue(scorer != null);
-            Assert.assertEquals(scorer.evaluate(testGame.getLine()), 150);
+            int score = scorer.evaluate(testGame.getLine());
+            if(score != 150){
+                throw new Exception("Score falsch");
+            }
+            Assert.assertEquals(score, 150);
         }
 
         {
             GameBuilder testGame = new GameBuilder(ROLL2);
             Scorer scorer = new Scorer();
             Assert.assertTrue(scorer != null);
-            Assert.assertEquals(scorer.evaluate(testGame.getLine()), 90);
+            int score = scorer.evaluate(testGame.getLine());
+            Assert.assertEquals(score, 90);
         }
 
         {
             GameBuilder testGame = new GameBuilder(ROLL3);
             Scorer scorer = new Scorer();
             Assert.assertTrue(scorer != null);
-            Assert.assertEquals(scorer.evaluate(testGame.getLine()), 300);
+            int score = scorer.evaluate(testGame.getLine());
+            Assert.assertEquals(score, 300);
         }
     }
 }

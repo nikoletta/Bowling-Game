@@ -17,27 +17,33 @@ public class GameBuilder {
         Frame frame = new Frame();
         char[] tries = game.toCharArray();
 
-        int counter = 0;
+        int counterFrames = 0;
+        int counterTries = 0;
         for (char t : tries) {
-            if (counter == 0) {
+            if (counterTries == 0) {
                 frame = new Frame();
                 line.getFrames().add(frame);
+
+                counterFrames++;
+                if(counterFrames > 10){
+                    frame.setBonus(true);
+                }
             }
 
             Trie trie = new Trie(t);
             frame.getTries().add(trie);
 
             if (t != 'X') {
-                if (counter == 0) {
-                    counter++;
+                if (counterTries == 0) {
+                    counterTries++;
                 } else {
-                    counter = 0;
+                    counterTries = 0;
                 }
 
             } else {
                 Trie emptyTrie = new Trie('0');
                 frame.getTries().add(emptyTrie);
-                counter = 0;
+                counterTries = 0;
             }
         }
     }
