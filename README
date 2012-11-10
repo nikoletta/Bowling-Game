@@ -36,11 +36,16 @@ Suggested Test Cases
 
 (When scoring "X" indicates a strike, "/" indicates a spare, "-" indicates a miss)
 
-- "XXXXXXXXXXXX" (12 rolls: 12 strikes) = 10+10+10 + 10+10+10 + 10+10+10 + 10+10+10 + 10+10+10 + 10+10+10 + 10+10+10 + 10+10+10 + 10+10+10 + 10+10+10 = 300
+- "  X          X          X          X          X          X          X          X         X          X  X  X" (12 rolls: 12 strikes) =
+    10+10+10 + 10+10+10 + 10+10+10 + 10+10+10 + 10+10+10 + 10+10+10 + 10+10+10 + 10+10+10 + 10+10+10 + 10+10+10 = 300
+                                                                                      240       270         300
+
 - "9-9-9-9-9-9-9-9-9-9-" (20 rolls: 10 pairs of 9 and miss) = 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 = 90
-- "5/       5/      5/   5/       5/    5/      5/    5/    5/      5/  5" (21 rolls: 10 pairs of 5 and spare, with a final 5) =
-   10+5 + 10+5 + 10+5 + 10+5 + 10+5 + 10+5 + 10+5 + 10+5 + 10+5 + 10+5      = 150
-    0       1       2      3     4      5       6      7    8       9  Bonus
+
+- "5/       5/      5/   5/       5/    5/      5/    5/    5/      5/     5" (21 rolls: 10 pairs of 5 and spare, with a final 5) =
+   10+5 + 10+5 + 10+5 + 10+5 + 10+5 + 10+5 + 10+5 + 10+5 + 10+5 +   10    + 5      = 150
+            30            60            90            120   135    145
+    1       2       3      4     5      6       7      8    9       10    Bonus
 
 Comments from those who have mastered this Kata:
 

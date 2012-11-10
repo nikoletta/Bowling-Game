@@ -19,51 +19,56 @@ public class Scorer {
         frame1 = frameIterator.next();
         frame2 = frameIterator.next();
 
-        //Frames 1-10
+        //Frames
         while (frameIterator.hasNext()) {
             frame3 = frameIterator.next();
+            if (!frame3.isBonus()) {
+                score += getScore(frame1, frame2, frame3);
+                if (!frameIterator.hasNext()) {
+                    score += getScore(frame1, frame2, null);
+                    score += getScore(frame1, null, null);
+                }
 
-            score += getScore(frame1, frame2, frame3);
-
+            } else {
+                if (!frame2.isBonus()) {
+                    score += getScore(frame1, frame2, frame3);
+                    score += getScore(frame1, frame2, null);
+                }else{
+                    score += totalScoreInFrame(frame3);
+                }
+            }
             frame1 = frame2;
             frame2 = frame3;
+            frame3 = null;
         }
-        frame3 = null;
 
-        if (frame2.isBonus()) {
-            //Bonus
-            score += getScore(frame1, frame2, null);
-        } else {
-            score += getScore(frame1, frame2, null);
-            score += getScore(frame2, null, null);
-        }
 
         return score;
     }
 
     private int getScore(Frame thisFrame, Frame nextFrame, Frame overNextFrame) {
-        int pinsThisFrame = totalPinsInFrame(thisFrame);
-        if (pinsThisFrame < 12) {
-            return pinsThisFrame;
+        int scoreThisFrame = totalScoreInFrame(thisFrame);
+        if (scoreThisFrame < 10) {
+            return scoreThisFrame;
         } else {
             if (thisFrame.isSpare()) {
-                return 10 + totalPinsInNextTrie(nextFrame.getTrie(0));
+                return 10 + totalScoreInNextTrie(nextFrame.getTrie(0));
             } else if (thisFrame.isStrike()) {
-                return 10 + totalPinsInFrame(nextFrame) + totalPinsInFrame(overNextFrame);
+                return 10 + totalScoreInFrame(nextFrame) + totalScoreInFrame(overNextFrame);
             }
 
         }
         return 0;
     }
 
-    private int totalPinsInNextTrie(Trie nextTrie) {
+    private int totalScoreInNextTrie(Trie nextTrie) {
         int pins = 0;
 
         if (nextTrie != null) {
             if (nextTrie.getPinsKnockedDown() == '-') {
                 //keine Punkte
             } else if (nextTrie.getPinsKnockedDown() == 'X') {
-                return 12;
+                return 10;
             } else {
                 return Character.getNumericValue(nextTrie.getPinsKnockedDown());
             }
@@ -72,24 +77,24 @@ public class Scorer {
         return pins;
     }
 
-    private int totalPinsInFrame(Frame frame) {
-        int pins = 0;
+    private int totalScoreInFrame(Frame frame) {
+        int score = 0;
 
         if (frame != null) {
             for (Trie trie : frame.getTries()) {
 
                 if (trie.getPinsKnockedDown() == '/') {
-                    return 12;
+                    return 10;
                 } else if (trie.getPinsKnockedDown() == '-') {
                     //keine Punkte
                 } else if (trie.getPinsKnockedDown() == 'X') {
-                    return 12;
+                    return 10;
                 } else {
-                    pins += Character.getNumericValue(trie.getPinsKnockedDown());
+                    score += Character.getNumericValue(trie.getPinsKnockedDown());
                 }
             }
         }
-        return pins;
+        return score;
     }
 
 
