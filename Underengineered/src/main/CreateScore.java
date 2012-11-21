@@ -25,11 +25,11 @@ public class CreateScore {
 
         }
 
-        char roll18 = roll1;
-        char roll19 = roll2;
-        char roll20 = roll3;
+        roll1=game[game.length-3];
+        roll2=game[game.length-2];
+        roll3=game[game.length-1];
 
-        score += doScore(roll18, roll19, roll20);
+        score += doScore(roll1, roll2, roll3);
 
         return score;
     }
