@@ -1,30 +1,10 @@
+package java;
+
 import junit.framework.Assert;
 import org.junit.Test;
 
 public class CreateScore {
 
-    @Test
-    public void testScore() {
-
-        final String ROLL4 = "--------------------";   //0
-        final String ROLL5 = "1-------------------";  //1
-        final String ROLL6 = "11111111111111111111";  //20*1 = 20
-        final String ROLL7 = "1/1-----------------";  //10+1 +1=12
-        final String ROLL8 = "X11----------------";  //10+1+1  1+1=14
-
-        final String ROLL1 = "5/5/5/5/5/5/5/5/5/5/5";
-        final String ROLL2 = "9-9-9-9-9-9-9-9-9-9-";
-        final String ROLL3 = "XXXXXXXXXXXX";
-
-        Assert.assertTrue("Score von -------------------- falsch.", createScore(ROLL4) == 0);
-        Assert.assertEquals("Score von 1------------------- falsch.", 1, createScore(ROLL5));
-        Assert.assertEquals("Score von 11111111111111111111 falsch.", 20, createScore(ROLL6));
-        Assert.assertEquals("Score von 1/1----------------- falsch.", 12, createScore(ROLL7));
-        Assert.assertEquals("Score von X11---------------- falsch.", 14, createScore(ROLL8));
-        Assert.assertEquals("Score von 5/5/5/5/5/5/5/5/5/5/5 falsch.", 150, createScore(ROLL1));
-        Assert.assertEquals("Score von 9-9-9-9-9-9-9-9-9-9- falsch.", 90, createScore(ROLL2));
-        Assert.assertEquals("Score von XXXXXXXXXXXX falsch.", 300, createScore(ROLL3));
-    }
 
     public int createScore(String roll) {
         char[] game = roll.toCharArray();
