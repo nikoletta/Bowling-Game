@@ -1,7 +1,4 @@
-package java;
-
-import junit.framework.Assert;
-import org.junit.Test;
+package main;
 
 public class CreateScore {
 
