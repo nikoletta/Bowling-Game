@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BowlingGame.iml" filepath="$PROJECT_DIR$/BowlingGame.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Overengineered/Overengineered.iml" filepath="$PROJECT_DIR$/Overengineered/Overengineered.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Underengineered/Underengineered.iml" filepath="$PROJECT_DIR$/Underengineered/Underengineered.iml" />
     </modules>
   </component>
 </project>
